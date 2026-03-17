@@ -1,11 +1,3 @@
-// Problem 4 — Sliding Window Maximum 
-// Given an array of size N and window size K, print the maximum of every window. 
-// Example 
-// Input 
-// N= 8 K=3 and elements 1 3 -1 -3 5 3 6 7 
-// Output: 3 3 5 5 6 7 
-// Hint: Use deque to store useful indices. 
-
 #include <iostream>
 #include <vector>
 #include <deque>

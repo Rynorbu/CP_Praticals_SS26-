@@ -1,11 +1,3 @@
-// Given N numbers, print the K largest numbers. 
-// Example 
-// Input 
-// N=6 K=3 and elements 7 10 4 3 20 15 
-// Output 
-// 20 15 10 
-// Hint: Use priority_queue (max heap). 
-
 #include <iostream>
 #include <queue>
 using namespace std;
