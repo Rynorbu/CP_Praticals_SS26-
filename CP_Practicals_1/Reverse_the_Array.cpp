@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int N;
+    cout << "Enter the number of integers: ";
+    cin >> N;  // Read the number of integers
+
+    vector<int> numbers(N);  // Create a vector to store N integers
+
+    cout << "Enter " << N << " integers:\n";
+    for (int i = 0; i < N; ++i) {
+        cin >> numbers[i];  // Read each integer into the vector
+    }
+
+    cout << "Reversed array:\n";
+    for (int i = N - 1; i >= 0; --i) {  // Traverse the vector in reverse
+        cout << numbers[i] << " ";  // Print each element followed by a space
+    }
+    cout << "\n";  // Print a newline at the end
+
+    return 0;
+}
