@@ -59,7 +59,7 @@ Read N integers, store them in a vector, and print the array in reverse order. T
 This problem helped me understand reverse traversal using vectors. Initially, I thought I needed to create a new reversed array. But using a simple backward loop from (N-1) to 0 is more efficient. The solution prints elements in reverse order without extra space, achieving O(n) time with O(n) space for storage only. This teaches the importance of choosing the right loop direction for efficient solutions.
 
 #### Program Output
-![Reverse the Array Output](assets/reverse_the_array.png)
+![Reverse the Array Output](assets/Reverse_the_array.png)
 
 ### Question 3: Remove Duplicates
 
@@ -116,7 +116,7 @@ Given N integers and a window size K, find the maximum element in each sliding w
 This problem helped me understand how a deque can maintain a sliding window maximum efficiently. Initially, I tried a brute force approach where I calculated the maximum for each window separately (O(n*k)). But after using a deque to maintain a monotonic decreasing order of indices, I achieved O(n) complexity. The key insight is that we don't need to recalculate every window's maximum from scratch—we can maintain useful elements in the deque and discard useless ones. This significantly improves performance for large arrays.
 
 #### Program Output
-![Sliding Window Maximum Output](assets/sliding_window.png)
+![Sliding Window Maximum Output](assets/Sliding_window.png)
 
 ### Question 5: Balanced Line Problem
 
