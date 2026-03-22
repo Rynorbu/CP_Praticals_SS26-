@@ -26,7 +26,7 @@ Read N integers, store them in a dynamic container (vector), and calculate the m
 - **Space Used**: O(n)
 - **Explanation**: We store all the integer in a list that can hold N integers. This takes up O(n) space. I used few variable to store the max, min and sum, but that takes constant space O(1). So the overall space complexity is O(n) because of the vector that holds the integers.
 
-#### Reflection on How You Solved the Problem or What You Learnt
+#### Reflection on How You Solved the Problem or What I Learnt
 
 This problem hepled me to understand about the vector in C++. Vector are really usefull for dynamic memory allocation. This is because vector can manage memory on their own based on the size of the input data. I understand that the vector are better than array because vector makes it east to add or remove things.
 
@@ -55,7 +55,7 @@ Read N integers, store them in a vector, and print the array in reverse order. T
 - **Space Used**: O(n)
 - **Explanation**: A vector of size N stores all N integers, requiring O(n) memory. We use a loop variable that takes O(1) constant space. So the overall space complexity is O(n) because of the vector.
 
-#### Reflection on How You Solved the Problem or What You Learnt
+#### Reflection on How You Solved the Problem or What I Learnt
 This problem helped me understand reverse traversal using vectors. Initially, I thought I needed to create a new reversed array. But using a simple backward loop from (N-1) to 0 is more efficient. The solution prints elements in reverse order without extra space, achieving O(n) time with O(n) space for storage only. This teaches the importance of choosing the right loop direction for efficient solutions.
 
 #### Program Output
@@ -82,7 +82,7 @@ Read N integers, remove duplicate values from the array, and print only the uniq
 - **Space Used**: O(n)
 - **Explanation**: A vector of size N stores all N integers, requiring O(n) memory. The unique() and sort() functions work in-place on the existing vector without requiring extra space. So the overall space complexity is O(n) for the vector storage.
 
-#### Reflection on How You Solved the Problem or What You Learnt
+#### Reflection on How You Solved the Problem or What I Learnt
 This problem helped me understand how sorting and the unique() function work together to remove duplicates efficiently. Initially, I thought about using a brute force approach with nested loops to find duplicates (O(n²)). But by using sort() followed by unique(), I achieved O(n log n) complexity. This teaches the importance of choosing the right STL functions and understanding that preprocessing data (sorting) can simplify duplicate removal significantly.
 
 #### Program Output
@@ -112,7 +112,7 @@ Given N integers and a window size K, find the maximum element in each sliding w
 - **Space Used**: O(n)
 - **Explanation**: The vector stores N integers requiring O(n) space. The deque stores indices of elements, in the worst case O(k) elements for a window of size K. The result vector stores (n-k+1) maximums. So the overall space complexity is O(n).
 
-#### Reflection on How You Solved the Problem or What You Learnt
+#### Reflection on How You Solved the Problem or What I Learnt
 This problem helped me understand how a deque can maintain a sliding window maximum efficiently. Initially, I tried a brute force approach where I calculated the maximum for each window separately (O(n*k)). But after using a deque to maintain a monotonic decreasing order of indices, I achieved O(n) complexity. The key insight is that we don't need to recalculate every window's maximum from scratch—we can maintain useful elements in the deque and discard useless ones. This significantly improves performance for large arrays.
 
 #### Program Output
@@ -142,7 +142,7 @@ Simulate a line where people can join or leave from either end. Support operatio
 - **Space Used**: O(n)
 - **Explanation**: The deque stores all people in the line. In the worst case, if we only perform push operations, the deque will store n people, requiring O(n) memory. Pop operations reduce this size. So the overall space complexity is O(n).
 
-#### Reflection on How You Solved the Problem or What You Learnt
+#### Reflection on How You Solved the Problem or What I Learnt
 This problem helped me understand the advantages of deques for double-ended operations. Initially, I used a switch statement with case blocks that were hard to read. By refactoring into separate functions (pushFront, pushBack, popFront, popBack, printLine), the code became more modular and maintainable. This approach demonstrates the importance of code organization and reusability. The deque data structure was perfect for this problem because it provides O(1) operations at both ends, unlike vectors which have O(n) performance for front operations.
 
 #### Program Output
@@ -168,7 +168,7 @@ Given N integers and a value K, find and print the K largest elements from the a
 - **Space Used**: O(n)
 - **Explanation**: The priority_queue stores all N elements, requiring O(n) memory. No additional data structures are used. So the overall space complexity is O(n).
 
-#### Reflection on How You Solved the Problem or What You Learnt
+#### Reflection on How You Solved the Problem or What I Learnt
 This problem helped me understand how priority queues (heaps) can efficiently find K largest elements. Initially, I could have sorted the entire array (O(n log n)) and picked the first K elements. But using a priority_queue achieves the same result with cleaner code. I learned that priority_queue in C++ is a max heap by default, which is perfect for this problem—we can simply pop K times to get the K largest elements in descending order. This approach is especially efficient when K is much smaller than N.
 
 #### Program Output
