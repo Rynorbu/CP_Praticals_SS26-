@@ -172,7 +172,7 @@ Given N integers and a value K, find and print the K largest elements from the a
 This problem helped me understand how priority queues (heaps) can efficiently find K largest elements. Initially, I could have sorted the entire array (O(n log n)) and picked the first K elements. But using a priority_queue achieves the same result with cleaner code. I learned that priority_queue in C++ is a max heap by default, which is perfect for this problem—we can simply pop K times to get the K largest elements in descending order. This approach is especially efficient when K is much smaller than N.
 
 #### Program Output
-![K Largest Elements Output](assets/k_largest.png)
+![K Largest Elements Output](assets/K_largest.png)
 
 
 
