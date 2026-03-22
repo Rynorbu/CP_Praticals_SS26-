@@ -7,9 +7,9 @@ using namespace std;
 int main() {
     int N, K;
     cout << "Enter the number of elements (N) and window size (K): ";
-    cin >> N >> K;  // Read the number of elements and window size
+    cin >> N >> K;  
 
-    vector<int> arr(N);  // Create a vector to store N integers
+    vector<int> arr(N);  
 
     cout << "Enter " << N << " integers:\n";
     for (int i = 0; i < N; ++i) {
@@ -30,21 +30,19 @@ int main() {
             dq.pop_back();
         }
 
-        // Add current index to the deque
         dq.push_back(i);
 
         // If we've hit the size of the window, add the maximum to the result
         if (i >= K - 1) {
-            result.push_back(arr[dq.front()]);  // The front of the deque is the max
+            result.push_back(arr[dq.front()]);
         }
     }
 
-    // Print the maximums of each window
     cout << "Maximums of each window:\n";
     for (int maxVal : result) {
-        cout << maxVal << " ";  // Print each maximum followed by a space
+        cout << maxVal << " "; 
     }
-    cout << "\n";  // Print a newline at the end
+    cout << "\n"; 
 
     return 0;
 }

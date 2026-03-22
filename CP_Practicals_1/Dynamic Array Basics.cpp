@@ -11,7 +11,7 @@ int main() {
     // Create a dynamic vector to store N integers
     vector<int> numbers(N); 
     
-    // Read N integers from the user and store them in the vector
+    // Read N integers and store them in the vector
     cout << "Enter " << N << " integers:\n";
     for (int i = 0; i < N; ++i) {
         cin >> numbers[i]; 
@@ -33,7 +33,6 @@ int main() {
         sum += num;
     }
 
-    // Display the results (maximum, minimum, and sum)
     cout << "Maximum element: " << maxElement << "\n";
     cout << "Minimum element: " << minElement << "\n";
     cout << "Sum of elements: " << sum << "\n";

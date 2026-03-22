@@ -13,7 +13,7 @@ int main() {
 
     cout << "Enter " << N << " integers:\n";
     for (int i = 0; i < N; ++i) {
-        cin >> numbers[i];  // Read each integer into the vector
+        cin >> numbers[i];  
     }
 
     // sort the vector to bring duplicates together
@@ -25,7 +25,6 @@ int main() {
     // Erase the "removed" elements from the vector
     numbers.erase(last, numbers.end());
 
-    // Print the unique values
     cout << "Unique values:\n";
     for (int num : numbers) {
         cout << num << " ";  
