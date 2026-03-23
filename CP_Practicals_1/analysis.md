@@ -169,10 +169,41 @@ Given N integers and a value K, find and print the K largest elements from the a
 - **Explanation**: The priority_queue stores all N elements, requiring O(n) memory. No additional data structures are used. So the overall space complexity is O(n).
 
 #### Reflection on How You Solved the Problem or What I Learnt
-This problem helped me understand how priority queues (heaps) can efficiently find K largest elements. Initially, I could have sorted the entire array (O(n log n)) and picked the first K elements. But using a priority_queue achieves the same result with cleaner code. I learned that priority_queue in C++ is a max heap by default, which is perfect for this problem—we can simply pop K times to get the K largest elements in descending order. This approach is especially efficient when K is much smaller than N.
+This problem helped me understand how priority queues (heaps) can efficiently find K largest elements. Initially, I could have sorted the entire array (O(n log n)) and picked the first K elements. But using a priority_queue achieves the same result with cleaner code. I learned that priority_queue in C++ is a max heap by default, which is perfect for this problem, we can simply pop K times to get the K largest elements in descending order. This approach is especially efficient when K is much smaller than N.
 
 #### Program Output
 ![K Largest Elements Output](assets/K_largest.png)
+
+### Question 7: Running Median
+
+#### Problem Summary
+Given a stream of N integers arriving one at a time, find and print the median after each insertion. The median is the middle value when the data is sorted. For an odd number of elements, it's the middle element. For an even number, it's the average of the two middle elements.
+
+#### Algorithm Explanation
+1. Create two priority queues:
+   - **maxHeap**: stores the smaller half of elements (max heap)
+   - **minHeap**: stores the larger half of elements (min heap)
+2. For each new integer:
+   - Add it to the appropriate heap based on comparison with maxHeap's top
+   - Balance the heaps so that maxHeap has either equal elements or one more than minHeap
+   - Calculate and print the median:
+     - If heaps have equal size: median = (maxHeap.top() + minHeap.top()) / 2
+     - If maxHeap has more: median = maxHeap.top()
+
+#### Time Complexity Analysis
+- **Time Complexity**: O(n log n)
+- **Explanation**: For each of the N elements, we perform heap insertion and balancing operations, both taking O(log n) time. Processing N elements gives O(n log n) total time. This is much better than sorting after each insertion (which would be O(n² log n)).
+
+#### Space Complexity Analysis
+- **Space Used**: O(n)
+- **Explanation**: We store all N elements split between two heaps (maxHeap and minHeap), requiring O(n) total memory. Both heaps combined store all elements exactly once. So the overall space complexity is O(n).
+
+#### Reflection on How You Solved the Problem or What I Learnt
+This problem taught me how to use two heaps to maintain a running median efficiently. Initially, I might have sorted the entire array after each insertion, which would be O(n² log n). But the two-heap approach is much smarter: we maintain the invariant that the smaller half is in maxHeap and the larger half is in minHeap. The key insight is that we don't need to sort, we only need to track the middle elements. Balancing the heaps ensures we can always access the median in O(1) time after O(log n) insertion. This demonstrates the power of choosing the right data structure: heaps are perfect for "always know the middle value" problems.
+
+#### Program Output
+The program reads N integers one at a time and outputs the running median after each insertion with 1 decimal place precision.
+![Running Median](assets/running_median.png)
 
 ### Question 8: Subset Generation
 
