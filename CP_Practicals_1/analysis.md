@@ -228,7 +228,7 @@ Given a set of N numbers, generate and print all possible subsets. For N element
 - **Explanation**: We store the N input elements in a vector, requiring O(n) space. The bitmask variables and loop counters use O(1) constant space. We don't use any additional data structures to store all subsets. So the overall space complexity is O(n).
 
 #### Reflection on How You Solved the Problem or What You Learnt
-This problem helped me master the bitmask technique for subset generation. Initially, I could have used recursion/backtracking to generate subsets (also valid). But using bitmasks is more elegant and efficient—each number from 0 to 2^n-1 directly represents a unique subset. The bit pattern tells us exactly which elements to include. I learned that bit manipulation with `mask & (1 << i)` is a powerful technique for iterating through combinations. This approach demonstrates how mathematical properties (binary representation) can solve complex problems elegantly.
+This problem helped me master the bitmask technique for subset generation. Initially, I could have used recursion/backtracking to generate subsets (also valid). But using bitmasks is more elegant and efficient, each number from 0 to 2^n-1 directly represents a unique subset. The bit pattern tells us exactly which elements to include. I learned that bit manipulation with `mask & (1 << i)` is a powerful technique for iterating through combinations. This approach demonstrates how mathematical properties (binary representation) can solve complex problems elegantly.
 
 #### Program Output
 ![Subset Generation Output](assets/subset_generation.png)
@@ -260,5 +260,37 @@ Given N numbers, count how many of the 2^N possible subsets have an even sum. A 
 This problem reinforced the bitmask technique combined with conditional counting. Initially, I could have generated all subsets and checked each one separately. But using the bitmask approach, I generate and check each subset in one pass. The key insight is that the bitmask directly encodes which elements to include, making it efficient. I also learned that solving this problem required understanding both subset generation and parity checking. The even sum condition (sum % 2 == 0) is efficiently checked in O(1) time, making the overall solution clean and optimal.
 
 #### Program Output
-![Count Subsets with Even Sum Output](assets/count_subsets_even_sum.png)
+![Count Subsets with Even Sum Output](assets/count_subset.png)
+
+### Question 10: Count Subsets with Sum Equal to Target
+
+#### Problem Summary
+Given N integers and a target sum, count how many of the 2^N possible subsets have a sum equal to the target value. This requires generating all subsets and checking which ones match the target sum exactly.
+
+#### Algorithm Explanation
+1. Read the number of elements (N) and the N elements themselves
+2. Read the target sum from the user
+3. Initialize a counter variable to 0
+4. For each mask from 0 to 2^N - 1:
+   - Calculate the sum of the subset represented by the mask
+   - For each bit position j (0 to N-1), if bit j is set in the mask (using `mask & (1 << j)`), add arr[j] to the subset sum
+   - Check if the subset sum equals the target value
+   - If it matches, increment the counter
+5. Print the total count of subsets with sum equal to target
+
+#### Time Complexity Analysis
+- **Time Complexity**: O(n × 2^n)
+- **Explanation**: We iterate through all 2^n possible subsets. For each subset, we check n bits to calculate the sum and compare it with the target. Therefore, the total time complexity is O(n × 2^n). This is optimal because we must examine all 2^n subsets to count all valid ones.
+
+#### Space Complexity Analysis
+- **Space Used**: O(n)
+- **Explanation**: We store the N input elements in a vector, requiring O(n) space. The variables for mask, subsetSum, and counter use O(1) constant space. We don't use any additional data structures to store subsets or results. So the overall space complexity is O(n).
+
+#### Reflection on How I Solved the Problem or What I Learnt
+This problem extends the bitmask technique from previous subset problems by adding a target matching condition. The solution builds on the subset generation pattern using bit manipulation. Initially, I could have used recursive backtracking to generate subsets and count matches, but the bitmask approach is more elegant and avoids the overhead of recursion. The key insight is that each number from 0 to 2^n-1 represents a unique subset through its binary representation. By checking if the calculated subset sum equals the target, we can efficiently count valid subsets in a single pass. This demonstrates how the same bitmask technique can be adapted for different subset problems—whether counting subsets with a specific property or generating all subsets.
+
+#### Program Output
+
+![Count Subsets with Even Sum Output](assets/count_target.png)
+
 
