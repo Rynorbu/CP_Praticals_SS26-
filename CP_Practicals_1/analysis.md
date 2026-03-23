@@ -174,5 +174,60 @@ This problem helped me understand how priority queues (heaps) can efficiently fi
 #### Program Output
 ![K Largest Elements Output](assets/K_largest.png)
 
+### Question 8: Subset Generation
 
+#### Problem Summary
+Given a set of N numbers, generate and print all possible subsets. For N elements, there are 2^N possible subsets including the empty set. The task is to display each subset in a clear format.
+
+#### Algorithm Explanation
+1. Read the number of elements (N) and the N elements themselves
+2. Calculate the total number of subsets: 2^N using bit shift `1 << N`
+3. For each mask from 0 to 2^N - 1:
+   - Check each bit position i in the mask (0 to N-1)
+   - If bit i is set (using `mask & (1 << i)`), include elements[i] in the current subset
+   - Print the current subset in curly braces
+4. Continue until all 2^N subsets are generated
+
+#### Time Complexity Analysis
+- **Time Complexity**: O(n × 2^n)
+- **Explanation**: We generate 2^n subsets, and for each subset, we check n bits to determine which elements to include. So the total time is O(n × 2^n). This is optimal because we must print all 2^n subsets, and each takes O(n) time to construct.
+
+#### Space Complexity Analysis
+- **Space Used**: O(n)
+- **Explanation**: We store the N input elements in a vector, requiring O(n) space. The bitmask variables and loop counters use O(1) constant space. We don't use any additional data structures to store all subsets. So the overall space complexity is O(n).
+
+#### Reflection on How You Solved the Problem or What You Learnt
+This problem helped me master the bitmask technique for subset generation. Initially, I could have used recursion/backtracking to generate subsets (also valid). But using bitmasks is more elegant and efficient—each number from 0 to 2^n-1 directly represents a unique subset. The bit pattern tells us exactly which elements to include. I learned that bit manipulation with `mask & (1 << i)` is a powerful technique for iterating through combinations. This approach demonstrates how mathematical properties (binary representation) can solve complex problems elegantly.
+
+#### Program Output
+![Subset Generation Output](assets/subset_generation.png)
+
+### Question 9: Count Subsets with Even Sum
+
+#### Problem Summary
+Given N numbers, count how many of the 2^N possible subsets have an even sum. A subset has an even sum if the sum of all its elements is divisible by 2. This includes the empty set (which has sum 0, an even number).
+
+#### Algorithm Explanation
+1. Read the number of elements (N) and the N elements themselves
+2. Initialize a counter to 0
+3. For each mask from 0 to 2^N - 1:
+   - Calculate the sum of the subset represented by the mask
+   - For each bit position i, if bit i is set in the mask, add elements[i] to the sum
+   - Check if the sum is even (sum % 2 == 0)
+   - If even, increment the counter
+4. Print the total count of subsets with even sum
+
+#### Time Complexity Analysis
+- **Time Complexity**: O(n × 2^n)
+- **Explanation**: We iterate through all 2^n possible subsets. For each subset, we check n bits to calculate the sum. Therefore, the total time complexity is O(n × 2^n). This is optimal since we need to examine all 2^n subsets.
+
+#### Space Complexity Analysis
+- **Space Used**: O(n)
+- **Explanation**: We store the N input elements in a vector, requiring O(n) space. The variables for mask and sum use O(1) constant space. We don't use any additional data structures to store subsets. So the overall space complexity is O(n).
+
+#### Reflection on How I Solved the Problem or What I Learnt
+This problem reinforced the bitmask technique combined with conditional counting. Initially, I could have generated all subsets and checked each one separately. But using the bitmask approach, I generate and check each subset in one pass. The key insight is that the bitmask directly encodes which elements to include, making it efficient. I also learned that solving this problem required understanding both subset generation and parity checking. The even sum condition (sum % 2 == 0) is efficiently checked in O(1) time, making the overall solution clean and optimal.
+
+#### Program Output
+![Count Subsets with Even Sum Output](assets/count_subsets_even_sum.png)
 
